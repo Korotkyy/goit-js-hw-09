@@ -1,0 +1,35 @@
+:root { 
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+  --animation-duration: 250ms; 
+} 
+ 
+ul { 
+  display: grid; 
+  max-width: 1140px; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  grid-gap: 12px; 
+  list-style: none; 
+  margin-left: auto; 
+  margin-right: auto; 
+} 
+ 
+ul li a { 
+  display: block; 
+  text-decoration: none; 
+  height: 100%; 
+} 
+ 
+img { 
+  height: 100%; 
+  width: 100%; 
+  object-fit: cover; 
+  transition: transform var(--animation-duration) var(--timing-function); 
+} 
+ 
+a:hover img { 
+  transform: scale(1.03); 
+} 
+ 
+ul li a:hover { 
+  cursor: zoom-in; 
+}
