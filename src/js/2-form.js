@@ -1,27 +1,3 @@
-// const STORAGE_KEY = "feedback-msg";
-// const form = document.querySelector('.feedback-form');
-// const textarea = form.querySelector("textarea");
-
-// function formSubmitHandler(event){
-//     event.preventDefault();
-//     const text = textarea.value;
-//     const email = form.elements.email.value;
-//     const data = JSON.stringify({text, email});
-//     localStorage.setItem(STORAGE_KEY, data);
-// }
-
-// form.addEventListener('submit', formSubmitHandler);
-
-// const jsn = localStorage.getItem(STORAGE_KEY) ?? "";
-// try {
-//     const data = JSON.parse(jsn);
-//     textarea.value = data.text;
-//     form.elements.email.value = data.email;
-// }
-// catch {
-//     console.log("No saved data!");
-// }
-
 const STORAGE_KEY = "feedback-form-state";
 const form = document.querySelector('.feedback-form');
 const textarea = form.querySelector("textarea");
@@ -45,15 +21,19 @@ const loadFormData = () => {
     }
   };
 
-form.addEventListener('input', saveFormData);
-window.addEventListener('load', loadFormData);
-
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  console.log({
-    email: emailInput.value.trim(),
-    message: textarea.value.trim()
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    
+    if (emailInput.value.trim() !== "" && textarea.value.trim() !== "") {
+      console.log({
+        email: emailInput.value.trim(),
+        message: textarea.value.trim()
+      });
+      
+      localStorage.removeItem(STORAGE_KEY);
+      form.reset();
+    } else {
+      alert("Будь ласка, заповніть всі поля форми.");
+    }
   });
-  localStorage.removeItem(STORAGE_KEY);
-  form.reset();
-});
