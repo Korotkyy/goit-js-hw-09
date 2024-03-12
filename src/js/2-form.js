@@ -23,9 +23,9 @@ const loadFormData = () => {
     }
 };
 
-loadFormData(); // Викликаємо функцію при завантаженні сторінки
+loadFormData(); 
 
-form.addEventListener('input', saveFormData); // Викликаємо saveFormData() при введенні даних користувачем
+form.addEventListener('input', saveFormData); ем
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -39,6 +39,6 @@ form.addEventListener('submit', (event) => {
         localStorage.removeItem(STORAGE_KEY);
         form.reset();
     } else {
-        alert("Будь ласка, заповніть всі поля форми.");
+        alert("No data");
     }
 });
