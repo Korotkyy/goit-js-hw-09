@@ -25,20 +25,18 @@ const loadFormData = () => {
 
 loadFormData(); 
 
-form.addEventListener('input', saveFormData); ем
-
 form.addEventListener('submit', (event) => {
-    event.preventDefault();
+  event.preventDefault();
+  
+  if (emailInput.value.trim() !== "" && textarea.value.trim() !== "") {
+      console.log({
+          email: emailInput.value.trim(),
+          message: textarea.value.trim()
+      });
     
-    if (emailInput.value.trim() !== "" && textarea.value.trim() !== "") {
-        console.log({
-            email: emailInput.value.trim(),
-            message: textarea.value.trim()
-        });
-      
-        localStorage.removeItem(STORAGE_KEY);
-        form.reset();
-    } else {
-        alert("No data");
-    }
+      localStorage.removeItem(STORAGE_KEY);
+      form.reset();
+  } else {
+      alert("Будь ласка, заповніть всі поля форми.");
+  }
 });
