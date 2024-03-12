@@ -20,6 +20,7 @@ const loadFormData = () => {
       console.error("Error loading form data:", error);
     }
   };
+  loadFormData();
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -36,3 +37,5 @@ const loadFormData = () => {
       alert("Будь ласка, заповніть всі поля форми.");
     }
   });
+
+  
