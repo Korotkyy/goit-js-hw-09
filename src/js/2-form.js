@@ -3,9 +3,16 @@ const form = document.querySelector('.feedback-form');
 const textarea = form.querySelector("textarea");
 const emailInput = form.querySelector("input[name='email']");
 
+const saveFormData = () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        email: emailInput.value.trim(),
+        message: textarea.value.trim()
+    }));
+};
+
 const loadFormData = () => {
     try {
-        const savedData = localStorage.getItem(STORAGE_KEY) ?? "";
+        const savedData = localStorage.getItem(STORAGE_KEY);
         if (savedData) {
             const { email, message } = JSON.parse(savedData);
             emailInput.value = email;
@@ -18,12 +25,7 @@ const loadFormData = () => {
 
 loadFormData(); // Викликаємо функцію при завантаженні сторінки
 
-const saveFormData = () => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        email: emailInput.value.trim(),
-        message: textarea.value.trim()
-    }));
-};
+form.addEventListener('input', saveFormData); // Викликаємо saveFormData() при введенні даних користувачем
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
