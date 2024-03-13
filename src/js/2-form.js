@@ -27,6 +27,7 @@ loadFormData();
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  
   if (emailInput.value.trim() !== "" && textarea.value.trim() !== "") {
       console.log({
           email: emailInput.value.trim(),
