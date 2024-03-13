@@ -40,3 +40,6 @@ form.addEventListener('submit', (event) => {
       alert("Будь ласка, заповніть всі поля форми.");
   }
 });
+form.addEventListener('input', () => {
+    saveFormData();
+});
