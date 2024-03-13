@@ -33,8 +33,7 @@ form.addEventListener('submit', (event) => {
           email: emailInput.value.trim(),
           message: textarea.value.trim()
       });
-    
-      localStorage.removeItem(STORAGE_KEY);
+      
       form.reset();
   } else {
       alert("Будь ласка, заповніть всі поля форми.");
