@@ -27,13 +27,12 @@ loadFormData();
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  
   if (emailInput.value.trim() !== "" && textarea.value.trim() !== "") {
       console.log({
           email: emailInput.value.trim(),
           message: textarea.value.trim()
       });
-      
+
       form.reset();
   } else {
       alert("Будь ласка, заповніть всі поля форми.");
